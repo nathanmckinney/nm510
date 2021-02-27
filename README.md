@@ -6,7 +6,9 @@
 
 **python package in development for TBD**
 
-
+-   CHANGES
+-   CHANGES
+-   MORE CHANGES
 -   Free software: MIT license
 -   Documentation: https://nathanmckinney.github.io/nm510
     
@@ -14,6 +16,8 @@
 ## Features
 
 -   TODO
+-   PLACEHOLDER
+-   MORE PLACEHOLDER TEXT
 
 ## Credits
 
