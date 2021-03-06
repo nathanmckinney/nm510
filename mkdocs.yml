@@ -46,3 +46,6 @@ nav:
     - Report Issues: https://github.com/nathanmckinney/nm510/issues
     - API Reference:
           - nm510 module: nm510.md
+    - Notebooks:
+          - notebooks/ipyleaflet_intro.ipynb
+          - notebooks/leafdemo.ipynb
