@@ -13,7 +13,10 @@
 
 ## Features
 
--   TODO
+-   Create an embedded leaflet map
+-   Add controls to manipulate the map
+-   Add a GeoJson or shapefile feature layer
+-   Lots mroe TBD
 
 ## Credits
 
