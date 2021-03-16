@@ -1,4 +1,5 @@
 """Main module."""
+import os
 import ipyleaflet
 from ipyleaflet import Map, FullScreenControl, LayersControl, DrawControl, MeasureControl, ScaleControl, TileLayer
 
@@ -33,8 +34,9 @@ class Map(ipyleaflet.Map):
                 url="https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
                 attribution="Google",
                 name="Google Maps",
-                )
-                self.add_layer(layer)
+            )
+            self.add_layer(layer)
+
         else:
             if kwargs["google_map"] =="ROADMAP":
                 layer = TileLayer(
@@ -43,13 +45,47 @@ class Map(ipyleaflet.Map):
                     name="Google Maps",
                 )
                 self.add_layer(layer)
-            elif kwargs["google_map"] == "HBYRID"
+
+            elif kwargs["google_map"] == "HYBRID":
                 layer = TileLayer(
                     url="https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}",
                     attribution="Google",
                     name="Google Satellite"
                 )
                 self.add_layer(layer)
+
+    def add_geojson(self, in_geojson, style=None,layer_name="Untitled"):
+
+        import json
+
+        if isinstance(in_geojson, str):
+
+            if not os.path.exists(in_geojson):
+                raise FileNotFoundError("The provided GeoJSON file could not be found.")
+
+            with open(in_geojson) as f:
+                data = json.load(f)
+        
+        elif isinstance(in_geojson, dict):
+            data = in_geojson
+        
+        else:
+            raise TypeError("The input geojson must be a type of str or dict.")
+
+        if style is None:
+            style = {
+                "stroke": True,
+                "color": "#000000",
+                "weight": 2,
+                "opacity": 1,
+                "fill": True,
+                "fillColor": "#0000ff",
+                "fillOpacity": 0.4,
+            }
+
+        geo_json = ipyleaflet.GeoJSON(data=data, style=style, name=layer_name)
+        self.add_layer(geo_json) 
+
 
 
 
