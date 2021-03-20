@@ -5,3 +5,4 @@ __email__ = 'mckinney@utk.edu'
 __version__ = '0.0.3'
 
 from .nm510 import *
+from .photocoords import *

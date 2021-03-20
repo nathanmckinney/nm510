@@ -2,6 +2,7 @@
 import os
 import ipyleaflet
 from ipyleaflet import Map, FullScreenControl, LayersControl, DrawControl, MeasureControl, ScaleControl, TileLayer
+from .photocoords import imgtag
 
 class Map(ipyleaflet.Map):
 
